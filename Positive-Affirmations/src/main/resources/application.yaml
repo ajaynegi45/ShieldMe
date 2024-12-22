@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Positive-Affirmations-Service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/emergency_mentalwellbeingauthentication
+server:
+  port: 8083
