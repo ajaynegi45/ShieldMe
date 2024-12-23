@@ -5,8 +5,8 @@ spring:
 # --- Database Configurations ---
   data:
     mongodb:
-      uri: mongodb://localhost:27017/emergency_mentalwellbeingauthentication  # MongoDB URI
-      database: emergency_mentalwellbeingauthentication
+      uri: mongodb://localhost:27017/ShieldMe  # MongoDB URI
+      database: ShieldMe
       auto-index-creation: true
 
 

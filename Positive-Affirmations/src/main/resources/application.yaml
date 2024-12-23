@@ -3,6 +3,6 @@ spring:
     name: Positive-Affirmations-Service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/emergency_mentalwellbeingauthentication
+      uri: mongodb://localhost:27017/ShieldMe
 server:
   port: 8083
