@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ShieldMe-Authentication-Service
+
+# --- Database Configurations ---
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/emergency_mentalwellbeingauthentication  # MongoDB URI
+      database: emergency_mentalwellbeingauthentication
+      auto-index-creation: true
+
+
+
+# --- Server Error Configurations ---
+server:
+  error:
+    include-binding-errors: always
+    include-message: always
+    include-stacktrace: never
+    include-exception: true
+  port: 8080  # Server port configuration
