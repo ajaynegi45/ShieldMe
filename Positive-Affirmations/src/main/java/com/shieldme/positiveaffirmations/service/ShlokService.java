@@ -1,11 +1,13 @@
 package com.shieldme.positiveaffirmations.service;
 
+import com.shieldme.positiveaffirmations.dto.ShlokRequest;
 import com.shieldme.positiveaffirmations.entity.Shlok;
 import com.shieldme.positiveaffirmations.repository.ShlokRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -16,24 +18,51 @@ public class ShlokService {
     private final ShlokRepository shlokRepository;
     private final Random random = new Random();
     private static final Logger logger = LoggerFactory.getLogger(ShlokService.class);
+
     public ShlokService(ShlokRepository shlokRepository) {
         this.shlokRepository = shlokRepository;
     }
 
-    // Add Single Affirmation
-    public Shlok addAffirmation(Shlok shlok) {
-        logger.info("Adding a new affirmation: {}", shlok);
-        return shlokRepository.save(shlok);
+
+//   Add a single affirmation to the database and return Saved affirmation.
+    public Shlok addAffirmation(ShlokRequest shlokRequest) {
+        logger.info("Adding a new affirmation: {}", shlokRequest);
+
+        // Map DTO to Entity
+        Shlok shlok = new Shlok();
+        shlok.setSanskritAffirmation(shlokRequest.sanskritShlok());
+        shlok.setEnglishAffirmation(shlokRequest.englishShlok());
+        shlok.setHindiMeaning(shlokRequest.hindiMeaning());
+        shlok.setEnglishMeaning(shlokRequest.englishMeaning());
+
+        // Save entity to database
+        Shlok savedShlok = shlokRepository.save(shlok);
+        logger.info("Affirmation added successfully with ID: {}", savedShlok.getId());
+        return savedShlok;
     }
 
-    // Add Multiple Affirmations
+
+//  Add multiple affirmations to the database and return List of saved affirmations.
     @Transactional
-    public List<Shlok> addMultipleAffirmations(List<Shlok> shloks) {
-        logger.info("Adding multiple affirmations: {}", shloks.size());
-        return shlokRepository.saveAll(shloks);
+    public List<Shlok> addMultipleAffirmations(List<ShlokRequest> shlokRequests) {
+        logger.info("Adding multiple affirmations: {}", shlokRequests.size());
+
+        // Map DTOs to Entities
+        List<Shlok> shloks = shlokRequests.stream()
+                .map(request -> new Shlok(null, request.sanskritShlok(), request.englishShlok(),
+                        request.hindiMeaning(), request.englishMeaning()))
+                .toList();
+
+        // Save entities to database
+        List<Shlok> savedShloks = shlokRepository.saveAll(shloks);
+        logger.info("Successfully added {} affirmations.", savedShloks.size());
+        return savedShloks;
     }
 
-    // Get Random Affirmation
+
+
+
+//  Retrieve a random affirmation from the database.
     public Optional<Shlok> getRandomAffirmation() {
         List<Shlok> affirmations = shlokRepository.findAll();
         if (affirmations.isEmpty()) {
@@ -45,16 +74,17 @@ public class ShlokService {
         return Optional.of(randomAffirmation);
     }
 
-    // Get All Affirmations
+//  Retrieve all affirmations from the database.
     public List<Shlok> getAllAffirmations() {
         logger.info("Fetching all affirmations.");
         return shlokRepository.findAll();
     }
 
-    // Get Affirmation by ID
+//  Retrieve an affirmation by its ID.
     public Optional<Shlok> getAffirmationById(String id) {
         logger.info("Fetching affirmation by ID: {}", id);
         return shlokRepository.findById(id);
     }
 }
+
 

@@ -3,7 +3,7 @@ package com.shieldme.positiveaffirmations.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "shlok")
+@Document(collection = "shloks")
 public class Shlok {
 
     @Id

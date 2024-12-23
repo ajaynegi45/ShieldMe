@@ -1,5 +1,6 @@
 package com.shieldme.positiveaffirmations.controller;
 
+import com.shieldme.positiveaffirmations.dto.ShlokRequest;
 import com.shieldme.positiveaffirmations.entity.Shlok;
 import com.shieldme.positiveaffirmations.service.ShlokService;
 import org.springframework.http.ResponseEntity;
@@ -12,26 +13,28 @@ import java.util.List;
 public class ShlokController {
 
     private final ShlokService shlokService;
-
     public ShlokController(ShlokService shlokService) {
         this.shlokService = shlokService;
     }
 
-    // Add Single Affirmation
+
+//  Add a single affirmation to the database and return Saved affirmation.
     @PostMapping("/add")
-    public ResponseEntity<Shlok> addAffirmation(@RequestBody Shlok shlok) {
-        Shlok savedAffirmation = shlokService.addAffirmation(shlok);
+    public ResponseEntity<Shlok> addAffirmation(@RequestBody ShlokRequest shlokRequest) {
+        Shlok savedAffirmation = shlokService.addAffirmation(shlokRequest);
         return ResponseEntity.ok(savedAffirmation);
     }
 
-    // Add Multiple Affirmations
+//  Add multiple affirmations to the database and return List of saved affirmations.
     @PostMapping("/add-multiple")
-    public ResponseEntity<List<Shlok>> addMultipleAffirmations(@RequestBody List<Shlok> shloks) {
-        List<Shlok> savedAffirmations = shlokService.addMultipleAffirmations(shloks);
+    public ResponseEntity<List<Shlok>> addMultipleAffirmations(@RequestBody List<ShlokRequest> shlokRequests) {
+        List<Shlok> savedAffirmations = shlokService.addMultipleAffirmations(shlokRequests);
         return ResponseEntity.ok(savedAffirmations);
     }
 
-    // Get Random Affirmation
+
+
+//  Retrieve a random affirmation from the database.
     @GetMapping("/random")
     public ResponseEntity<Shlok> getRandomAffirmation() {
         return shlokService.getRandomAffirmation()
@@ -39,7 +42,8 @@ public class ShlokController {
                 .orElse(ResponseEntity.noContent().build());
     }
 
-    // Get All Affirmations
+
+//  Retrieve all affirmations from the database.
     @GetMapping("/all")
     public ResponseEntity<List<Shlok>> getAllAffirmations() {
         List<Shlok> affirmations = shlokService.getAllAffirmations();
@@ -49,7 +53,8 @@ public class ShlokController {
         return ResponseEntity.ok(affirmations);
     }
 
-    // Get Affirmation by ID
+
+//  Retrieve an affirmation by its ID.
     @GetMapping("/{id}")
     public ResponseEntity<Shlok> getAffirmationById(@PathVariable String id) {
         return shlokService.getAffirmationById(id)
