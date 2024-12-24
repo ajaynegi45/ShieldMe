@@ -8,18 +8,18 @@ public class Shlok {
 
     @Id
     private String id;
-    private String sanskritAffirmation;
-    private String englishAffirmation;
+    private String sanskritShlok;
+    private String englishShlok;
     private String hindiMeaning;
     private String englishMeaning;
 
     public Shlok() {
     }
 
-    public Shlok(String id, String sanskritAffirmation, String englishAffirmation, String hindiMeaning, String englishMeaning) {
+    public Shlok(String id, String sanskritShlok, String englishShlok, String hindiMeaning, String englishMeaning) {
         this.id = id;
-        this.sanskritAffirmation = sanskritAffirmation;
-        this.englishAffirmation = englishAffirmation;
+        this.sanskritShlok = sanskritShlok;
+        this.englishShlok = englishShlok;
         this.hindiMeaning = hindiMeaning;
         this.englishMeaning = englishMeaning;
     }
@@ -32,20 +32,20 @@ public class Shlok {
         this.id = id;
     }
 
-    public String getSanskritAffirmation() {
-        return sanskritAffirmation;
+    public String getSanskritShlok() {
+        return sanskritShlok;
     }
 
-    public void setSanskritAffirmation(String sanskritAffirmation) {
-        this.sanskritAffirmation = sanskritAffirmation;
+    public void setSanskritShlok(String sanskritShlok) {
+        this.sanskritShlok = sanskritShlok;
     }
 
-    public String getEnglishAffirmation() {
-        return englishAffirmation;
+    public String getEnglishShlok() {
+        return englishShlok;
     }
 
-    public void setEnglishAffirmation(String englishAffirmation) {
-        this.englishAffirmation = englishAffirmation;
+    public void setEnglishShlok(String englishShlok) {
+        this.englishShlok = englishShlok;
     }
 
     public String getHindiMeaning() {
@@ -68,8 +68,8 @@ public class Shlok {
     public String toString() {
         return "Shlok{" +
                 "id='" + id + '\'' +
-                ", sanskritAffirmation='" + sanskritAffirmation + '\'' +
-                ", englishAffirmation='" + englishAffirmation + '\'' +
+                ", sanskritShlok='" + sanskritShlok + '\'' +
+                ", englishShlok='" + englishShlok + '\'' +
                 ", hindiMeaning='" + hindiMeaning + '\'' +
                 ", englishMeaning='" + englishMeaning + '\'' +
                 '}';

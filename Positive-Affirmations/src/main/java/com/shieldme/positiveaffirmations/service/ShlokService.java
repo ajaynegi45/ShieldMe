@@ -30,8 +30,8 @@ public class ShlokService {
 
         // Map DTO to Entity
         Shlok shlok = new Shlok();
-        shlok.setSanskritAffirmation(shlokRequest.sanskritShlok());
-        shlok.setEnglishAffirmation(shlokRequest.englishShlok());
+        shlok.setSanskritShlok(shlokRequest.sanskritShlok());
+        shlok.setEnglishShlok(shlokRequest.englishShlok());
         shlok.setHindiMeaning(shlokRequest.hindiMeaning());
         shlok.setEnglishMeaning(shlokRequest.englishMeaning());
 
