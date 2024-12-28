@@ -3,6 +3,18 @@ spring:
     name: Positive-Affirmations-Service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/ShieldMe
+#      uri: mongodb://localhost:27017/ShieldMe
+      uri: mongodb+srv://ajaynegi3345:m7CdBtFBJz4xFVcT@mongocluster.epkox.mongodb.net/?retryWrites=true&w=majority&appName=MongoCluster
+      database: ShieldMe
+      auto-index-creation: true
 server:
   port: 8083
+
+
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb=DEBUG:

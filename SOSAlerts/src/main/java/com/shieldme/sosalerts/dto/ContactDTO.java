@@ -1,8 +1,10 @@
 package com.shieldme.sosalerts.dto;
 
 
+import org.bson.types.ObjectId;
+
 public class ContactDTO {
-    private String userId;
+    private ObjectId userId;
     private Contact contact;
 
     @Override
@@ -16,16 +18,16 @@ public class ContactDTO {
     public ContactDTO() {
     }
 
-    public ContactDTO(String userId, Contact contact) {
+    public ContactDTO(ObjectId userId, Contact contact) {
         this.userId = userId;
         this.contact = contact;
     }
 
-    public String getUserId() {
+    public ObjectId getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(ObjectId userId) {
         this.userId = userId;
     }
 

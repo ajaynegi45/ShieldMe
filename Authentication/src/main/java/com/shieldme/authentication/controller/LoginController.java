@@ -1,13 +1,8 @@
 package com.shieldme.authentication.controller;
 
-
 import com.shieldme.authentication.dto.LoginRequest;
 import com.shieldme.authentication.dto.UserResponse;
-import com.shieldme.authentication.exception.InvalidCredentialsException;
-import com.shieldme.authentication.exception.UserAlreadyExistsException;
-import com.shieldme.authentication.exception.UserNotFoundException;
 import com.shieldme.authentication.service.LoginService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

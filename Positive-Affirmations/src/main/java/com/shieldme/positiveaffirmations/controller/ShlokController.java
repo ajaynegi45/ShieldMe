@@ -3,6 +3,7 @@ package com.shieldme.positiveaffirmations.controller;
 import com.shieldme.positiveaffirmations.dto.ShlokRequest;
 import com.shieldme.positiveaffirmations.entity.Shlok;
 import com.shieldme.positiveaffirmations.service.ShlokService;
+import org.bson.types.ObjectId;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -43,7 +44,8 @@ public class ShlokController {
     }
 
 
-//  Retrieve all affirmations from the database.
+
+    //  Retrieve all affirmations from the database.
     @GetMapping("/all")
     public ResponseEntity<List<Shlok>> getAllAffirmations() {
         List<Shlok> affirmations = shlokService.getAllAffirmations();
@@ -56,7 +58,7 @@ public class ShlokController {
 
 //  Retrieve an affirmation by its ID.
     @GetMapping("/{id}")
-    public ResponseEntity<Shlok> getAffirmationById(@PathVariable String id) {
+    public ResponseEntity<Shlok> getAffirmationById(@PathVariable ObjectId id) {
         return shlokService.getAffirmationById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
