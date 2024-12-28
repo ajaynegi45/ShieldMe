@@ -1,5 +1,8 @@
 package com.shieldme.positiveaffirmations.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,45 +10,46 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Shlok {
 
     @Id
-    private String id;
-    private String sanskritAffirmation;
-    private String englishAffirmation;
+    @JsonSerialize(using = ToStringSerializer.class) // Serialize ObjectId as a string
+    private ObjectId shlokId;
+    private String sanskritShlok;
+    private String englishShlok;
     private String hindiMeaning;
     private String englishMeaning;
 
     public Shlok() {
     }
 
-    public Shlok(String id, String sanskritAffirmation, String englishAffirmation, String hindiMeaning, String englishMeaning) {
-        this.id = id;
-        this.sanskritAffirmation = sanskritAffirmation;
-        this.englishAffirmation = englishAffirmation;
+    public Shlok(ObjectId shlokId, String sanskritShlok, String englishShlok, String hindiMeaning, String englishMeaning) {
+        this.shlokId = shlokId;
+        this.sanskritShlok = sanskritShlok;
+        this.englishShlok = englishShlok;
         this.hindiMeaning = hindiMeaning;
         this.englishMeaning = englishMeaning;
     }
 
-    public String getId() {
-        return id;
+    public ObjectId getShlokId() {
+        return shlokId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setShlokId(ObjectId shlokId) {
+        this.shlokId = shlokId;
     }
 
-    public String getSanskritAffirmation() {
-        return sanskritAffirmation;
+    public String getSanskritShlok() {
+        return sanskritShlok;
     }
 
-    public void setSanskritAffirmation(String sanskritAffirmation) {
-        this.sanskritAffirmation = sanskritAffirmation;
+    public void setSanskritShlok(String sanskritShlok) {
+        this.sanskritShlok = sanskritShlok;
     }
 
-    public String getEnglishAffirmation() {
-        return englishAffirmation;
+    public String getEnglishShlok() {
+        return englishShlok;
     }
 
-    public void setEnglishAffirmation(String englishAffirmation) {
-        this.englishAffirmation = englishAffirmation;
+    public void setEnglishShlok(String englishShlok) {
+        this.englishShlok = englishShlok;
     }
 
     public String getHindiMeaning() {
@@ -67,9 +71,9 @@ public class Shlok {
     @Override
     public String toString() {
         return "Shlok{" +
-                "id='" + id + '\'' +
-                ", sanskritAffirmation='" + sanskritAffirmation + '\'' +
-                ", englishAffirmation='" + englishAffirmation + '\'' +
+                "shlokId=" + shlokId +
+                ", sanskritShlok='" + sanskritShlok + '\'' +
+                ", englishShlok='" + englishShlok + '\'' +
                 ", hindiMeaning='" + hindiMeaning + '\'' +
                 ", englishMeaning='" + englishMeaning + '\'' +
                 '}';

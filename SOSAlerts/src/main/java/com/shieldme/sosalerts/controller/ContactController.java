@@ -4,6 +4,7 @@ import com.shieldme.sosalerts.exception.InvalidContactException;
 import com.shieldme.sosalerts.dto.ContactDTO;
 import com.shieldme.sosalerts.dto.UserContactList;
 import com.shieldme.sosalerts.service.ContactService;
+import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -24,7 +25,7 @@ public class ContactController {
     public ResponseEntity<String> addContacts(@RequestBody @Validated ContactDTO contactDTO) {
         try {
             System.out.println(contactDTO.toString());
-            if (contactDTO.getUserId() == null || contactDTO.getUserId().isBlank()) {
+            if (contactDTO.getUserId() == null) {
                 throw new InvalidContactException("User ID is required to add contact.");
             }
             contactService.saveContact(contactDTO);
@@ -38,9 +39,9 @@ public class ContactController {
     }
 
     @GetMapping("/get-contacts/{userId}")
-    public ResponseEntity<?> getContacts(@PathVariable String userId) {
+    public ResponseEntity<?> getContacts(@PathVariable ObjectId userId) {
         try {
-            if (userId == null || userId.isBlank()) {
+            if (userId == null || userId.toString().isEmpty()) {
                 throw new InvalidContactException("User ID is required to fetch contacts.");
             }
             UserContactList contactDetails = contactService.getContactDetails(userId);
@@ -56,10 +57,10 @@ public class ContactController {
 
     @DeleteMapping("/delete-contact/{userId}")
     public ResponseEntity<String> deleteContact(
-            @PathVariable String userId,
+            @PathVariable ObjectId userId,
             @RequestParam(required = false) String email,
             @RequestParam(required = false) String phoneNumber) {
-        if (userId == null || userId.isBlank()) {
+        if (userId == null || userId.toString().isEmpty()) {
             throw new InvalidContactException("User ID is required to delete contact.");
         }
         if ((email == null || email.isBlank()) && (phoneNumber == null || phoneNumber.isBlank())) {

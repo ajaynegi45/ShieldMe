@@ -21,7 +21,12 @@ public class WebConfiguration {
                                 authorizeRequests
                                         .requestMatchers("/api/auth/register").permitAll()
                                         .requestMatchers("/api/auth/login").permitAll()
+
                                         .requestMatchers("/api/auth/update-profile", "/forgotPassword/**").permitAll()
+
+                                        .requestMatchers("/api/auth/update-profile").permitAll()
+                                        .requestMatchers("/api/get/all/users").permitAll()
+
                                         .anyRequest().authenticated()
                 ).formLogin(withDefaults());
         return http.build();

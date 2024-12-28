@@ -1,14 +1,12 @@
 package com.shieldme.sosalerts.service;
 
-
-import com.shieldme.sosalerts.dto.Contact;
+import java.util.List;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import com.shieldme.sosalerts.dto.Contact;
+import org.springframework.stereotype.Service;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class EmailService {

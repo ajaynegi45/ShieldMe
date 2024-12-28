@@ -1,6 +1,8 @@
 package com.shieldme.authentication.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.OneToOne;
@@ -9,36 +11,37 @@ import javax.persistence.OneToOne;
 public class User {
 
     @Id
-    private String userId;
+    private ObjectId userId;
 
     private String name;
 
+    @Indexed(unique = true)
     private String email;
 
-    private String password;
+    private PasswordDetails passwordDetails = new PasswordDetails();
 
-    private String profileImage; // Base64
+    private ProfileImage profileImage = new ProfileImage();
 
-    private Role role; // "ADMIN", "USER", "MODERATOR"
+    private Role role; // "ADMIN", "USER"
 
     public User() {
         this.role = Role.USER; // Default to "USER"
     }
 
-    public User(String userId, String name, String email, String password, String profileImage, Role role) {
+    public User(ObjectId userId, String name, String email, PasswordDetails passwordDetails, ProfileImage profileImage, Role role) {
         this.userId = userId;
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.passwordDetails = passwordDetails;
         this.profileImage = profileImage;
-        this.role = Role.USER; // Default to "USER"
+        this.role = Role.USER;
     }
 
-    public String getUserId() {
+    public ObjectId getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(ObjectId userId) {
         this.userId = userId;
     }
 
@@ -58,19 +61,19 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public PasswordDetails getPasswordDetails() {
+        return passwordDetails;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordDetails(PasswordDetails passwordDetails) {
+        this.passwordDetails = passwordDetails;
     }
 
-    public String getProfileImage() {
+    public ProfileImage getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(String profileImage) {
+    public void setProfileImage(ProfileImage profileImage) {
         this.profileImage = profileImage;
     }
 
@@ -81,6 +84,7 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
+
 
     @Override
     public String toString() {
@@ -96,5 +100,6 @@ public class User {
 
 @OneToOne(mappedBy = "user")
     private ForgotPassword forgotPassword;
+
 }
 

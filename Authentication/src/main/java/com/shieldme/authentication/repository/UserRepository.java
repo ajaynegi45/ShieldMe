@@ -2,8 +2,11 @@ package com.shieldme.authentication.repository;
 
 
 import com.shieldme.authentication.entity.User;
+
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
+import org.bson.types.ObjectId;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -11,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, String> {
+public interface UserRepository extends MongoRepository<User, ObjectId> {
     Optional<User> findByEmail(String email);
     boolean existsByEmail(String email);
 

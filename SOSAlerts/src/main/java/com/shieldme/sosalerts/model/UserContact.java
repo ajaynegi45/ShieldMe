@@ -2,7 +2,9 @@ package com.shieldme.sosalerts.model;
 
 import com.shieldme.sosalerts.dto.Contact;
 import jakarta.validation.constraints.NotEmpty;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -12,10 +14,11 @@ import java.util.List;
 public class UserContact {
 
     @Id
-    private String contactId;
+    private ObjectId contactId;
 
+    @Indexed(unique = true)
     @NotEmpty(message = "UserId is nor present")
-    private String userId;
+    private ObjectId userId;
 
     private List<Contact> contacts = new ArrayList<>();
 
@@ -23,25 +26,25 @@ public class UserContact {
     public UserContact() {
     }
 
-    public UserContact(String contactId, String userId, List<Contact> contacts) {
+    public UserContact(ObjectId contactId, ObjectId userId, List<Contact> contacts) {
         this.contactId = contactId;
         this.userId = userId;
         this.contacts = contacts;
     }
 
-    public String getContactId() {
+    public ObjectId getContactId() {
         return contactId;
     }
 
-    public void setContactId(String contactId) {
+    public void setContactId(ObjectId contactId) {
         this.contactId = contactId;
     }
 
-    public String getUserId() {
+    public ObjectId getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(ObjectId userId) {
         this.userId = userId;
     }
 
