@@ -34,13 +34,13 @@ public class RegistrationService {
         User user = new User();
         user.setName(request.name());
         user.setEmail(request.email());
-        user.setPassword(passwordEncoder.bCryptPasswordEncoder().encode(request.password()));
+        user.getPasswordDetails().setPassword(passwordEncoder.bCryptPasswordEncoder().encode(request.password())) ;
 
         userRepository.save(user);
         logger.info("User with email {} registered successfully.", request.email());
 
         return new UserResponse(
-                user.getUserId(),
+                user.getUserId().toString(),
                 user.getName(),
                 user.getEmail(),
                 user.getProfileImage()

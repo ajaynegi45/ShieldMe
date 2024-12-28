@@ -67,4 +67,11 @@ public class JournalController {
         }
         return ResponseEntity.notFound().build();
     }
+
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Journal>> getAllJournals() {
+        List<Journal> journals = journalService.getAllJournals();
+        return ResponseEntity.ok(journals);
+    }
 }

@@ -3,7 +3,13 @@ spring:
     name: SOS-Alerts-Service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/ShieldMe
+#      uri: mongodb://localhost:27017/ShieldMe
+
+      uri: mongodb+srv://ajaynegi3345:m7CdBtFBJz4xFVcT@mongocluster.epkox.mongodb.net/?retryWrites=true&w=majority&appName=MongoCluster
+      database: ShieldMe
+      auto-index-creation: true
+
+
   mail:
     host: smtp.gmail.com
     port: 587
@@ -11,7 +17,7 @@ spring:
     #username: # --- Add Email from which all emails are going to send ---
     #password: # --- Generate application password for that email id from google console ---
     username: codiescoder@gmail.com
-    password: # create your own
+    password: nhxvxwgsthvypwjq
 
     properties:
       mail:

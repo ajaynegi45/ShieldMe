@@ -35,4 +35,8 @@ public class JournalService {
         return journalRepository.save(updatedJournal);
     }
 
+    public List<Journal> getAllJournals() {
+        return journalRepository.findAll();
+    }
+
 }

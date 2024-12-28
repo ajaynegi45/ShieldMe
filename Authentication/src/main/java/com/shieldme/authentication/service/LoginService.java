@@ -30,13 +30,13 @@ public class LoginService {
                     return new UserNotFoundException("The email address is not registered.");
                 });
 
-        if (!passwordEncoder.bCryptPasswordEncoder().matches(request.password(), user.getPassword())) {
+        if (!passwordEncoder.bCryptPasswordEncoder().matches(request.password(), user.getPasswordDetails().getPassword())) {
             logger.warn("Login failed: Invalid password for email: {}", request.email());
             throw new InvalidCredentialsException("The password you entered is incorrect.");
         }
 
         return new UserResponse(
-                user.getUserId(),
+                user.getUserId().toString(),
                 user.getName(),
                 user.getEmail(),
                 user.getProfileImage()

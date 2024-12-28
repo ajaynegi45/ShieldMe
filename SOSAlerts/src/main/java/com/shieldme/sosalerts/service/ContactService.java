@@ -6,6 +6,7 @@ import com.shieldme.sosalerts.dto.ContactDTO;
 import com.shieldme.sosalerts.dto.UserContactList;
 import com.shieldme.sosalerts.model.UserContact;
 import com.shieldme.sosalerts.repository.UserContactRepository;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -53,7 +54,7 @@ public class ContactService {
     }
 
 
-    public UserContactList getContactDetails(String userId) {
+    public UserContactList getContactDetails(ObjectId userId) {
         UserContact userContact = contactRepository.findByUserId(userId)
                 .orElseThrow(() -> new InvalidContactException("User not found with ID: " + userId));
 
@@ -66,7 +67,7 @@ public class ContactService {
 
 
 
-    public boolean deleteContact(String userId, String email, String phoneNumber) {
+    public boolean deleteContact(ObjectId userId, String email, String phoneNumber) {
         // Fetch the user's contact list or throw an exception if the user is not found
         UserContact userContact = contactRepository.findByUserId(userId)
                 .orElseThrow(() -> new InvalidContactException("User not found with ID: " + userId));
