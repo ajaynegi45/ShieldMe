@@ -5,8 +5,7 @@ spring:
 # --- Database Configurations ---
   data:
     mongodb:
-#      uri: mongodb://localhost:27017/ShieldMe  # MongoDB URI
-      uri: mongodb+srv://ajaynegi3345:m7CdBtFBJz4xFVcT@mongocluster.epkox.mongodb.net/?retryWrites=true&w=majority&appName=MongoCluster
+      uri: mongodb://localhost:27017/ShieldMe  # MongoDB URI
       database: ShieldMe
       auto-index-creation: true
 

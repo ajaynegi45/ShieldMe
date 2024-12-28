@@ -3,8 +3,7 @@ spring:
     name: Journal-Service
   data:
     mongodb:
-#      uri: mongodb://localhost:27017/ShieldMe
-      uri: mongodb+srv://ajaynegi3345:m7CdBtFBJz4xFVcT@mongocluster.epkox.mongodb.net/?retryWrites=true&w=majority&appName=MongoCluster
+      uri: mongodb://localhost:27017/ShieldMe
       database: ShieldMe
       auto-index-creation: true
 server:
