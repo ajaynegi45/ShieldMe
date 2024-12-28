@@ -3,6 +3,8 @@ package com.shieldme.authentication.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.OneToOne;
+
 @Document(collection = "users")
 public class User {
 
@@ -91,5 +93,8 @@ public class User {
                 ", role=" + role +
                 '}';
     }
+
+@OneToOne(mappedBy = "user")
+    private ForgotPassword forgotPassword;
 }
 

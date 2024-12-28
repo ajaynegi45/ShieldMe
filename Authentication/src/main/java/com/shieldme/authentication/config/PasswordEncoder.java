@@ -13,4 +13,7 @@ public class PasswordEncoder {
         return new BCryptPasswordEncoder();
     }
 
+    public String encode(String password) {
+        return null;
+    }
 }
