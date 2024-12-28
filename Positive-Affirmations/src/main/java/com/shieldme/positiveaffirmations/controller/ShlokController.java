@@ -35,6 +35,7 @@ public class ShlokController {
 
 
 
+
 //  Retrieve a random affirmation from the database.
     @GetMapping("/random")
     public ResponseEntity<Shlok> getRandomAffirmation() {

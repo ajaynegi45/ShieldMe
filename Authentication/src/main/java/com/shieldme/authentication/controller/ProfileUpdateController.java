@@ -3,7 +3,6 @@ package com.shieldme.authentication.controller;
 import com.shieldme.authentication.dto.UpdateRequest;
 import com.shieldme.authentication.dto.UserResponse;
 import com.shieldme.authentication.service.ProfileUpdateService;
-import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,6 @@ public class ProfileUpdateController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProfileUpdateController.class);
     private final ProfileUpdateService profileUpdateService;
-
     public ProfileUpdateController(ProfileUpdateService profileUpdateService) {
         this.profileUpdateService = profileUpdateService;
     }
@@ -29,8 +27,6 @@ public class ProfileUpdateController {
             @RequestPart(value = "profileImage", required = false) MultipartFile profileImage) {
 
         try {
-
-            System.out.println("Profile update request: " + profileData.toString());
             if(profileData.userId() == null) {
                 return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("USER ID is not null");
             }
