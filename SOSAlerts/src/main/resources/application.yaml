@@ -15,7 +15,7 @@ spring:
     #username: # --- Add Email from which all emails are going to send ---
     #password: # --- Generate application password for that email id from google console ---
     username: codiescoder@gmail.com
-    password: nhxvxwgsthvypwjq
+    password: #add your own password
 
     properties:
       mail:
