@@ -10,7 +10,6 @@ spring:
       auto-index-creation: true
 
 
-
 # --- Server Error Configurations ---
 server:
   error:

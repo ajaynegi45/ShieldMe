@@ -1,6 +1,5 @@
 package com.shieldme.sosalerts.model;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,11 +10,8 @@ import java.time.LocalDateTime;
 public class SOSAlertLog {
 
     @Id
-    private ObjectId alertId;
-
-    @Indexed(unique = true)
-    private ObjectId userId;
-
+    private String alertId;
+    private String userId;
     private LocalDateTime timestamp;
     private double latitude;
     private double longitude;
@@ -24,7 +20,7 @@ public class SOSAlertLog {
     public SOSAlertLog() {
     }
 
-    public SOSAlertLog(ObjectId alertId, ObjectId userId, LocalDateTime timestamp, double latitude, double longitude, String status) {
+    public SOSAlertLog(String alertId, String userId, LocalDateTime timestamp, double latitude, double longitude, String status) {
         this.alertId = alertId;
         this.userId = userId;
         this.timestamp = timestamp;
@@ -33,19 +29,19 @@ public class SOSAlertLog {
         this.status = status;
     }
 
-    public ObjectId getAlertId() {
+    public String getAlertId() {
         return alertId;
     }
 
-    public void setAlertId(ObjectId alertId) {
+    public void setAlertId(String alertId) {
         this.alertId = alertId;
     }
 
-    public ObjectId getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(ObjectId userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -81,4 +77,3 @@ public class SOSAlertLog {
         this.status = status;
     }
 }
-

@@ -9,8 +9,4 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ShlokRepository extends MongoRepository<Shlok, ObjectId> {
-
-    @Query(value = "{}", sort = "{ $sample: { size: 1 } }")
-    List<Shlok> getRandomShlok();
-}
+public interface ShlokRepository extends MongoRepository<Shlok, String> {}

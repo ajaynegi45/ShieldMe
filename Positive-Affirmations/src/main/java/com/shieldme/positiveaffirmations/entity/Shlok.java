@@ -10,8 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Shlok {
 
     @Id
-    @JsonSerialize(using = ToStringSerializer.class) // Serialize ObjectId as a string
-    private ObjectId shlokId;
+    private String shlokId;
     private String sanskritShlok;
     private String englishShlok;
     private String hindiMeaning;
@@ -20,7 +19,7 @@ public class Shlok {
     public Shlok() {
     }
 
-    public Shlok(ObjectId shlokId, String sanskritShlok, String englishShlok, String hindiMeaning, String englishMeaning) {
+    public Shlok(String shlokId, String sanskritShlok, String englishShlok, String hindiMeaning, String englishMeaning) {
         this.shlokId = shlokId;
         this.sanskritShlok = sanskritShlok;
         this.englishShlok = englishShlok;
@@ -28,11 +27,11 @@ public class Shlok {
         this.englishMeaning = englishMeaning;
     }
 
-    public ObjectId getShlokId() {
+    public String getShlokId() {
         return shlokId;
     }
 
-    public void setShlokId(ObjectId shlokId) {
+    public void setShlokId(String shlokId) {
         this.shlokId = shlokId;
     }
 
@@ -66,16 +65,5 @@ public class Shlok {
 
     public void setEnglishMeaning(String englishMeaning) {
         this.englishMeaning = englishMeaning;
-    }
-
-    @Override
-    public String toString() {
-        return "Shlok{" +
-                "shlokId=" + shlokId +
-                ", sanskritShlok='" + sanskritShlok + '\'' +
-                ", englishShlok='" + englishShlok + '\'' +
-                ", hindiMeaning='" + hindiMeaning + '\'' +
-                ", englishMeaning='" + englishMeaning + '\'' +
-                '}';
     }
 }

@@ -39,6 +39,7 @@ public class LoginService {
                 user.getUserId().toString(),
                 user.getName(),
                 user.getEmail(),
+                user.getRole(),
                 user.getProfileImage()
         );
     }

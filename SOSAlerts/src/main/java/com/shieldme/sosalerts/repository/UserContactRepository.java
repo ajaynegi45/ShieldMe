@@ -6,9 +6,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
-public interface UserContactRepository extends MongoRepository<UserContact, ObjectId> {
-    Optional<UserContact> findByContactId(ObjectId contactId);
+public interface UserContactRepository extends MongoRepository<UserContact, String> {
+    Optional<UserContact> findByContactId(String contactId);
 
-    Optional<UserContact> findByUserId(ObjectId userId);
+    Optional<UserContact> findByUserId(String userId);
 }
 

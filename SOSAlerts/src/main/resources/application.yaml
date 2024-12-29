@@ -7,7 +7,6 @@ spring:
       database: ShieldMe
       auto-index-creation: true
 
-
   mail:
     host: smtp.gmail.com
     port: 587
@@ -15,7 +14,7 @@ spring:
     #username: # --- Add Email from which all emails are going to send ---
     #password: # --- Generate application password for that email id from google console ---
     username: codiescoder@gmail.com
-    password: #add your own password
+    password: #Add Your Own Password
 
     properties:
       mail:

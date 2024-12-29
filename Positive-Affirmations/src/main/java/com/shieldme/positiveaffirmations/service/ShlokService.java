@@ -62,16 +62,15 @@ public class ShlokService {
 
 
 //  Retrieve a random affirmation from the database.
-    public Optional<Shlok> getRandomAffirmation() {
-    // Fetch a single random Shlok using MongoDB's $sample
-    List<Shlok> randomShloks = shlokRepository.getRandomShlok();
-    if (randomShloks.isEmpty()) {
+public Optional<Shlok> getRandomAffirmation() {
+    List<Shlok> affirmations = shlokRepository.findAll();
+    if (affirmations.isEmpty()) {
         logger.warn("No affirmations available in the database.");
         return Optional.empty();
     }
-    Shlok randomShlok = randomShloks.get(0); // Only one is fetched
-    logger.info("Returning random affirmation: {}", randomShlok);
-    return Optional.of(randomShlok);
+    Shlok randomAffirmation = affirmations.get(random.nextInt(affirmations.size()));
+    logger.info("Returning random affirmation: {}", randomAffirmation);
+    return Optional.of(randomAffirmation);
 }
 
 //  Retrieve all affirmations from the database.
@@ -81,7 +80,7 @@ public class ShlokService {
     }
 
 //  Retrieve an affirmation by its ID.
-    public Optional<Shlok> getAffirmationById(ObjectId id) {
+    public Optional<Shlok> getAffirmationById(String id) {
         logger.info("Fetching affirmation by ID: {}", id);
         return shlokRepository.findById(id);
     }

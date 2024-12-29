@@ -52,6 +52,7 @@ public class ProfileUpdateService {
                 user.getUserId().toString(),
                 user.getName(),
                 user.getEmail(),
+                user.getRole(),
                 user.getProfileImage()
         );
     }
