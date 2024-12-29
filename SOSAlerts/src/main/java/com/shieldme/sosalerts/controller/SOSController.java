@@ -33,7 +33,7 @@ public class SOSController {
 
     @PostMapping("/alert")
     public ResponseEntity<String> sendSOSAlert(
-            @RequestParam ObjectId userId,
+            @RequestParam String userId,
             @RequestParam String username,
             @RequestParam double latitude,
             @RequestParam double longitude) {
@@ -74,7 +74,7 @@ public class SOSController {
 
 
     @GetMapping("/alert-logs/{userId}")
-    public ResponseEntity<?> getSOSAlertLogs(@PathVariable ObjectId userId) {
+    public ResponseEntity<?> getSOSAlertLogs(@PathVariable String userId) {
         try {
             List<SOSAlertLog> logs = alertLogService.getLogsByUserId(userId);
             if (logs.isEmpty()) {

@@ -1,5 +1,6 @@
 package com.shieldme.authentication.config;
 
+import com.shieldme.authentication.entity.Role;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,7 +23,7 @@ public class WebConfiguration {
                                         .requestMatchers("/api/auth/register").permitAll()
                                         .requestMatchers("/api/auth/login").permitAll()
                                         .requestMatchers("/api/auth/update-profile").permitAll()
-                                        .requestMatchers("/api/get/all/users").permitAll()
+                                        .requestMatchers("/api/admin/get/all/users").permitAll()
                                         .anyRequest().authenticated()
                 ).formLogin(withDefaults());
         return http.build();

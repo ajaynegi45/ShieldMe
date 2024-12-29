@@ -1,10 +1,9 @@
 package com.shieldme.sosalerts.controller;
 
 import com.shieldme.sosalerts.exception.InvalidContactException;
-import com.shieldme.sosalerts.dto.ContactDTO;
-import com.shieldme.sosalerts.dto.UserContactList;
+import com.shieldme.sosalerts.dto.ContactRequest;
+import com.shieldme.sosalerts.dto.UserContactListResponse;
 import com.shieldme.sosalerts.service.ContactService;
-import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -16,19 +15,18 @@ import org.springframework.web.bind.annotation.*;
 public class ContactController {
 
     private final ContactService contactService;
-
     public ContactController(ContactService contactService) {
         this.contactService = contactService;
     }
 
     @PostMapping("/add-contacts")
-    public ResponseEntity<String> addContacts(@RequestBody @Validated ContactDTO contactDTO) {
+    public ResponseEntity<String> addContacts(@RequestBody @Validated ContactRequest contactRequest) {
         try {
-            System.out.println(contactDTO.toString());
-            if (contactDTO.getUserId() == null) {
+            System.out.println(contactRequest.toString());
+            if (contactRequest.getUserId() == null) {
                 throw new InvalidContactException("User ID is required to add contact.");
             }
-            contactService.saveContact(contactDTO);
+            contactService.saveContact(contactRequest);
             return ResponseEntity.ok("Contact saved successfully!");
         } catch (InvalidContactException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -39,12 +37,12 @@ public class ContactController {
     }
 
     @GetMapping("/get-contacts/{userId}")
-    public ResponseEntity<?> getContacts(@PathVariable ObjectId userId) {
+    public ResponseEntity<?> getContacts(@PathVariable String userId) {
         try {
-            if (userId == null || userId.toString().isEmpty()) {
+            if (userId == null || userId.isBlank()) {
                 throw new InvalidContactException("User ID is required to fetch contacts.");
             }
-            UserContactList contactDetails = contactService.getContactDetails(userId);
+            UserContactListResponse contactDetails = contactService.getContactDetails(userId);
             return ResponseEntity.ok(contactDetails);
         } catch (InvalidContactException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -57,10 +55,10 @@ public class ContactController {
 
     @DeleteMapping("/delete-contact/{userId}")
     public ResponseEntity<String> deleteContact(
-            @PathVariable ObjectId userId,
+            @PathVariable String userId,
             @RequestParam(required = false) String email,
             @RequestParam(required = false) String phoneNumber) {
-        if (userId == null || userId.toString().isEmpty()) {
+        if (userId == null || userId.isBlank()) {
             throw new InvalidContactException("User ID is required to delete contact.");
         }
         if ((email == null || email.isBlank()) && (phoneNumber == null || phoneNumber.isBlank())) {

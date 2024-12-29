@@ -59,7 +59,7 @@ public class ShlokController {
 
 //  Retrieve an affirmation by its ID.
     @GetMapping("/{id}")
-    public ResponseEntity<Shlok> getAffirmationById(@PathVariable ObjectId id) {
+    public ResponseEntity<Shlok> getAffirmationById(@PathVariable String id) {
         return shlokService.getAffirmationById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

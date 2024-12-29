@@ -1,26 +1,24 @@
 package com.shieldme.sosalerts.dto;
 
-import org.bson.types.ObjectId;
-
 import java.util.List;
 
-public class UserContactList {
-    private ObjectId userId;
+public class UserContactListResponse {
+    private String userId;
     private List<Contact> contacts;
 
-    public UserContactList() {
+    public UserContactListResponse() {
     }
 
-    public UserContactList(ObjectId userId, List<Contact> contacts) {
+    public UserContactListResponse(String userId, List<Contact> contacts) {
         this.userId = userId;
         this.contacts = contacts;
     }
 
-    public ObjectId getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(ObjectId userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

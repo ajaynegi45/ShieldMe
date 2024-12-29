@@ -42,6 +42,7 @@ public class RegistrationService {
                 user.getUserId().toString(),
                 user.getName(),
                 user.getEmail(),
+                user.getRole(),
                 user.getProfileImage()
         );
     }

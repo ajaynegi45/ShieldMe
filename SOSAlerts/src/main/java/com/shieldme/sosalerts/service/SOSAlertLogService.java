@@ -13,7 +13,7 @@ public class SOSAlertLogService {
         this.alertLogRepository = alertLogRepository;
     }
 
-    public List<SOSAlertLog> getLogsByUserId(ObjectId userId) {
+    public List<SOSAlertLog> getLogsByUserId(String userId) {
         return alertLogRepository.findByUserId(userId);
     }
 }

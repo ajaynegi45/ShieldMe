@@ -1,12 +1,10 @@
 package com.shieldme.authentication.controller;
 
-import com.shieldme.authentication.entity.User;
+import com.shieldme.authentication.dto.UserResponse;
 import com.shieldme.authentication.service.AdminService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -20,9 +18,7 @@ public class AdminController {
     }
 
     @GetMapping("/get/all/users")
-    public ResponseEntity<List<User>> getAllUsers() {
-        return ResponseEntity.ok(adminService.getAllUsers());
+    public ResponseEntity<List<UserResponse>> getAllUsers(@RequestParam (required = true) String userId) {
+        return ResponseEntity.ok(adminService.getAllUsers(userId));
     }
-
-
 }
