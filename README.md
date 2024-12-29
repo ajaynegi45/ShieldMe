@@ -60,6 +60,8 @@ ShieldMe-backend/
 |-- pom.xml                   # Parent POM for dependency management
 ```
 
+<img src="https://github.com/ajaynegi45/ShieldMe-Backend/blob/main/ShieldMe%20Database.svg" alt="Database Design">
+
 ---
 
 ## Getting Started
