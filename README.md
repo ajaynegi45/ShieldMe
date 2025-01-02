@@ -81,6 +81,7 @@ The application consists of the following components:
 - **Maven**
 - **Java IDE**
 - **MongoDB** running locally or accessible via a URI
+- **Node.js**
 - Make sure to check **application.yaml** file of each services to run it locally.
   
 ---
