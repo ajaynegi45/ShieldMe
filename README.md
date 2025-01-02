@@ -1,65 +1,40 @@
 # ShieldMe
 
-ShieldMe is the backend system for the **Emergency and Mental Wellbeing Application**. It is a **multi-module Spring Boot project** designed to support the application's four primary microservices:
+ShieldMe is the Emergency and Mental Wellbeing Application, a comprehensive system that integrates both frontend and backend components to provide a seamless user experience. It is designed to support users in managing mental well-being, ensuring safety during emergencies, and promoting positivity.
 
-1. **User Authentication**: Ensures secure access with robust authentication and authorization mechanisms.
-2. **Secure Journal**: Allows users to create and manage private journal entries safely.
-3. **SOS Button**: Provides emergency alerts with contact management and live tracking.
-4. **Positive Affirmations**: Delivers motivational quotes and life inspiration to users.
+The application consists of the following components:
+- **Backend**: A **multi-module Spring Boot** project that powers the application’s core features.
+- **Frontend**: A **React-based** user interface that ensures a user-friendly experience.
 
 ---
 
 ## Features
 
 ### 1. **User Authentication**
-- Secure access with role-based authentication.
-- Supports user registration, login, and password management.
-- Implements strong exception handling for seamless user experience.
+- Secure role-based authentication and authorization.
+- User registration, login, and password management.
+- Robust exception handling for a seamless user experience.
 
-### 2. **Secure Journal**
-- Enables users to create, update, and delete personal journal entries.
-- Data is stored securely in MongoDB to ensure privacy.
+### 2. **Journal**
+- Create and delete personal journal entries.
+- User-friendly editor for journal entries.
 
 ### 3. **SOS Button**
 - Sends emergency alerts to saved contacts via email.
 - Stores multiple email IDs and phone numbers for emergency contacts.
-- Integrates with live location tracking to assist in emergencies.
-- Uses Gmail's email service for reliable alert delivery.
-- Implements strong exception handling for seamless user experience.
+- Utilizes Gmail API for reliable email alert delivery.
+- Robust exception handling for uninterrupted service.
+- Proper Alerts sent or failed logs.
 
-### 4. **Positive Affirmations**
+### 4. Positive Affirmations
 - Provides daily motivational quotes and inspirational content.
-- Helps enhance mental well-being by promoting positivity.
+- Enhances mental well-being by promoting positivity.
+- Interactive UI for exploring and sharing affirmations.
 
----
-
-## Tech Stack
-
-- **Java**: Version 17
-- **Spring Boot**
-- **MongoDB**: Database for storing journal entries, user data, SOS alerts and positive affirmations 
-- **Maven**: Build and dependency management
-- **Gmail API**: For sending emergency email alerts
-- **IntelliJ IDEA IDE**
-
-
----
-
-## System Architecture
-
-<img src="https://github.com/ajaynegi45/ShieldMe-Backend/blob/main/System%20Architecture.png" alt="Database Design">
-
----
-
-## Getting Started
-
-### Prerequisites
-- **Java 17**
-- **Maven**
-- **Java IDE**
-- **MongoDB** running locally or accessible via a URI
-- Make sure to check application.yaml file of each services to run it locally.
-
+### 5. Admin Panel
+- Centralized system for managing users and data.
+- View user data and manage journal entries.
+- Improves system control and usability.
 ---
 ## Team Contribution
 
@@ -79,6 +54,34 @@ ShieldMe is the backend system for the **Emergency and Mental Wellbeing Applicat
 ### Yash Raj 
 - Enhanced user experience for the application by designing the frontend.
 - Developed the complete frontend for a Positive Affirmations feature.
+
+
+## Tech Stack
+- **Java**: Version 17
+- **Spring Boot**
+- **MongoDB**: Database for storing journal entries, user data, SOS alerts and positive affirmations 
+- **Maven**: Build and dependency management
+- **Gmail API**: For sending emergency email alerts
+- **IntelliJ IDEA IDE**
+- **React**
+
+
+---
+
+## System Architecture
+
+<img src="https://github.com/ajaynegi45/ShieldMe-Backend/blob/main/System%20Architecture.png" alt="Database Design">
+
+---
+
+## Getting Started
+
+### Prerequisites
+- **Java 17**
+- **Maven**
+- **Java IDE**
+- **MongoDB** running locally or accessible via a URI
+- Make sure to check **application.yaml** file of each services to run it locally.
   
 ---
 
