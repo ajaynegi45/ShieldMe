@@ -46,21 +46,11 @@ Make sure to check application.yaml file of each services to run it locally.
 
 ---
 
-## Project Structure
-This project is a **multi-module Spring Boot application**, with each microservice as a separate module:
+## System Architecture
 
-```
-ShieldMe-backend/
-|
-|-- Authentication/   # User Authentication module
-|-- Journal/          # Secure Journal module
-|-- SOSAlerts/       # SOS Button module
-|-- Positive-Affirmations/     # Positive Affirmations module
-|
-|-- pom.xml                   # Parent POM for dependency management
-```
 
-<img src="https://github.com/ajaynegi45/ShieldMe-Backend/blob/main/ShieldMe%20Database.svg" alt="Database Design">
+
+<img src="https://github.com/ajaynegi45/ShieldMe-Backend/blob/main/System%20Architecture.png" alt="Database Design">
 
 ---
 
