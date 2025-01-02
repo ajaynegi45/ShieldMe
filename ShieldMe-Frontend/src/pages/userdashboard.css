@@ -1,0 +1,323 @@
+.welcome-container > h1 > span {
+    background: linear-gradient(to right, #67C3F3, #5A98F2);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.shlok-container {
+    margin: 1.5rem 0 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fefcea, #f1da36);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+.shlok-container p {
+    margin: 0;
+    padding: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+.sos-button {
+    margin: 1rem 0 1rem 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: #e53e3e;
+    border: none;
+
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+
+}
+
+/* Hover effect */
+.sos-button:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+.sos-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.6);
+}
+
+
+/* SOS Contact Section */
+.other-sos-container {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fefcea, #e4e4e4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.emergency-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.other-sos-container h2 {
+    font-family: 'Georgia', serif;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #444;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/*.sos-card {*/
+/*    margin-bottom: 1.5rem;*/
+/*    padding: 1rem;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 8px;*/
+/*    background-color: white;*/
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+/*    min-width: 200px;*/
+/*    width: 300px;*/
+/*    max-width: 500px;*/
+/*}*/
+
+/*.sos-card:hover {*/
+/*    background-color: #d32f2f;*/
+/*    cursor: pointer;*/
+
+/*}*/
+
+.sos-card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.sos-card p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+
+/* SOS Card */
+.sos-card {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    width: 300px;
+    max-width: 500px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.sos-card:hover {
+    background-color: #ffe6e6;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+/* Call Link */
+.call-link {
+    color: #d32f2f;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.call-link:hover {
+    color: #a31919;
+    text-decoration: underline;
+}
+
+/* Emergency Container */
+.emergency-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.dashboard-container {
+    width: 100%;
+}
+
+.dashboard-container > .dashboard-hero-section-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dashboard-container > .dashboard-hero-section-container > .dashboard-left-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+
+}
+
+.dashboard-left-container > h1 > span {
+    color: #FF8852;
+}
+
+.dashboard-container > .dashboard-hero-section-container > .dashboard-left-container > h1 {
+    font-size: 2rem;
+}
+
+.dashboard-container > .dashboard-hero-section-container > .dashboard-left-container > p {
+    font-size: 1.5rem;
+}
+
+.dashboard-container > .dashboard-hero-section-container > .dashboard-left-container > a {
+    font-size: 1.2rem;
+    width: fit-content;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+
+    font-weight: normal;
+    margin-top: 1rem;
+    transition: .6s;
+    background-color: #FF8852;
+    color: white;
+
+}
+
+.dashboard-container > .dashboard-hero-section-container > .dashboard-left-container > a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background: #fe621a;
+}
+
+
+.dashboard-container > .dashboard-hero-section-container > .dashboard-right-container > img {
+    width: 20rem;
+}
+
+.sos-button-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #F5F5FA;
+    border-radius: 30px;
+    padding-bottom: 3rem;
+}
+
+.sos-button-container > h1 {
+    font-size: 2rem;
+    color: #313A51;
+    margin-top: 2rem;
+}
+
+.sos-button-container > a {
+    background: #F5F5FA;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #F5F5FA; /* Light border color */
+
+
+}
+
+.sos-button-container > a > button {
+    margin: 1rem 0 1rem 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    /*background: #e53e3e;*/
+    border: none;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+
+    background: radial-gradient(#FFAD59 0%, #FF7E7B 100%);
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.sos-button-container > a > button:hover {
+    font-size: 2rem;
+    width: 220px;
+    height: 220px;
+}
+
+.dashboard-emergency-container {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: #313A51;
+}
+
+.emergency-list-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    margin-bottom: 5rem;
+}
+
+
+.line-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.line-div > div {
+    width: 500px;
+    border-bottom: 1px solid #ddd;
+
+}
