@@ -3,11 +3,9 @@ package com.shieldme.positiveaffirmations.service;
 import com.shieldme.positiveaffirmations.dto.ShlokRequest;
 import com.shieldme.positiveaffirmations.entity.Shlok;
 import com.shieldme.positiveaffirmations.repository.ShlokRepository;
-import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,8 +22,7 @@ public class ShlokService {
         this.shlokRepository = shlokRepository;
     }
 
-
-//   Add a single affirmation to the database and return Saved affirmation.
+    // Add a single affirmation to the database and return the saved affirmation.
     public Shlok addAffirmation(ShlokRequest shlokRequest) {
         logger.info("Adding a new affirmation: {}", shlokRequest);
 
@@ -42,9 +39,7 @@ public class ShlokService {
         return savedShlok;
     }
 
-
-//  Add multiple affirmations to the database and return List of saved affirmations.
-    @Transactional
+    // Add multiple affirmations to the database and return a list of saved affirmations.
     public List<Shlok> addMultipleAffirmations(List<ShlokRequest> shlokRequests) {
         logger.info("Adding multiple affirmations: {}", shlokRequests.size());
 
@@ -60,30 +55,27 @@ public class ShlokService {
         return savedShloks;
     }
 
-
-//  Retrieve a random affirmation from the database.
-public Optional<Shlok> getRandomAffirmation() {
-    List<Shlok> affirmations = shlokRepository.findAll();
-    if (affirmations.isEmpty()) {
-        logger.warn("No affirmations available in the database.");
-        return Optional.empty();
+    // Retrieve a random affirmation from the database.
+    public Optional<Shlok> getRandomAffirmation() {
+        List<Shlok> affirmations = shlokRepository.findAll();
+        if (affirmations.isEmpty()) {
+            logger.warn("No affirmations available in the database.");
+            return Optional.empty();
+        }
+        Shlok randomAffirmation = affirmations.get(random.nextInt(affirmations.size()));
+        logger.info("Returning random affirmation: {}", randomAffirmation);
+        return Optional.of(randomAffirmation);
     }
-    Shlok randomAffirmation = affirmations.get(random.nextInt(affirmations.size()));
-    logger.info("Returning random affirmation: {}", randomAffirmation);
-    return Optional.of(randomAffirmation);
-}
 
-//  Retrieve all affirmations from the database.
+    // Retrieve all affirmations from the database.
     public List<Shlok> getAllAffirmations() {
         logger.info("Fetching all affirmations.");
         return shlokRepository.findAll();
     }
 
-//  Retrieve an affirmation by its ID.
+    // Retrieve an affirmation by its ID.
     public Optional<Shlok> getAffirmationById(String id) {
         logger.info("Fetching affirmation by ID: {}", id);
         return shlokRepository.findById(id);
     }
 }
-
-

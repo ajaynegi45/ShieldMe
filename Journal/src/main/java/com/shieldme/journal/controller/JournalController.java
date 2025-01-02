@@ -1,6 +1,5 @@
 package com.shieldme.journal.controller;
 
-
 import com.shieldme.journal.model.Journal;
 import com.shieldme.journal.service.JournalService;
 import org.springframework.http.HttpStatus;
