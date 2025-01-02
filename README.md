@@ -1,6 +1,6 @@
-# ShieldMe-Backend
+# ShieldMe
 
-ShieldMe-Backend is the backend system for the **Emergency and Mental Wellbeing Application**. It is a **multi-module Spring Boot project** designed to support the application's four primary microservices:
+ShieldMe is the backend system for the **Emergency and Mental Wellbeing Application**. It is a **multi-module Spring Boot project** designed to support the application's four primary microservices:
 
 1. **User Authentication**: Ensures secure access with robust authentication and authorization mechanisms.
 2. **Secure Journal**: Allows users to create and manage private journal entries safely.
@@ -60,6 +60,26 @@ ShieldMe-Backend is the backend system for the **Emergency and Mental Wellbeing 
 - **MongoDB** running locally or accessible via a URI
 - Make sure to check application.yaml file of each services to run it locally.
 
+---
+## Team Contribution
+
+### Harinee
+- Developed the Journal backend and made minor frontend updates with PPT.
+### Ajay Negi
+- **Designed and Developed Admin Panel**  
+   Accomplished 100% development of a centralized admin panel, enabling efficient management by implementing features to view user data and delete journals, improving system control and usability.
+
+- **Built Core Frontend and Backend Features**  
+   Developed 80% of key functionalities, including Authentication, SOS Alerts, Journals, and Positive Affirmations, streamlining user interactions and ensuring seamless feature integration.
+  
+- **Integrated Frontend and Backend Systems**  
+   Achieved 100% integration of frontend and backend systems, optimizing real-time user interactions and enhancing security for a seamless user experience.  
+
+
+### Yash Raj 
+- Enhanced user experience for the application by designing the frontend.
+- Developed the complete frontend for a Positive Affirmations feature.
+  
 ---
 
 ## License
